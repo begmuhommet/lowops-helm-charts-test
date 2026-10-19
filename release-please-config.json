@@ -4,15 +4,7 @@
       "changelog-path": "CHANGELOG.md",
       "release-type": "helm"
     },
-    "charts/app-nextjs": {
-      "changelog-path": "CHANGELOG.md",
-      "release-type": "helm"
-    },
-    "charts/app-mendix": {
-      "changelog-path": "CHANGELOG.md",
-      "release-type": "helm"
-    },
-    "charts/app-generic": {
+    "charts/app": {
       "changelog-path": "CHANGELOG.md",
       "release-type": "helm"
     },
