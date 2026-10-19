@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  app:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-10-19T01:03:14.931066956Z"
+    description: A Helm chart for deploying applications on the low-ops platform
+    digest: 6cafe075bedd70dcc2676193dd73ae9a83904da1a4676f3e2fce3f673e6a2d46
+    name: app
+    type: application
+    urls:
+    - https://github.com/begmuhommet/lowops-helm-charts-test/releases/download/app-0.5.0/app-0.5.0.tgz
+    version: 0.5.0
   app-generic:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -1169,4 +1180,4 @@ entries:
     urls:
     - https://github.com/cinaq/helm-charts/releases/download/retraced-0.1.0/retraced-0.1.0.tgz
     version: 0.1.0
-generated: "2026-04-10T08:07:02.574458875Z"
+generated: "2026-10-19T01:03:15.946313915Z"
