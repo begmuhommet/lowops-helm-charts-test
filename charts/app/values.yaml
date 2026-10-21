@@ -1,6 +1,6 @@
 replicaCount: 1
 
-# Deployment or StatefulSet
+# Deployment or StatefulSet test
 workload:
   kind: Deployment
 
