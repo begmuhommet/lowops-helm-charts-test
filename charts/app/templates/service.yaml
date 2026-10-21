@@ -8,7 +8,7 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.externalPort }}
-      targetPort: {{ .Values.service.internalPort }}
+      targetPort: {{ include "app.listenPort" . }}
       protocol: TCP
       name: http
     {{- range .Values.service.extraPorts }}

@@ -60,3 +60,22 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Listen port. A PORT env value of 1-65535 wins. Otherwise service.internalPort (8000).
+*/}}
+{{- define "app.listenPort" -}}
+{{- $chosen := dict "port" (.Values.service.internalPort | int) -}}
+{{- range .Values.env }}
+{{- if eq .name "PORT" }}
+{{- $raw := .value | toString | trim }}
+{{- if regexMatch "^[0-9]+$" $raw }}
+{{- $n := $raw | int }}
+{{- if and (ge $n 1) (le $n 65535) }}
+{{- $_ := set $chosen "port" $n }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- $chosen.port }}
+{{- end }}

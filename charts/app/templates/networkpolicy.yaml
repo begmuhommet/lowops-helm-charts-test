@@ -31,7 +31,7 @@ spec:
     {{- end }}
     ports:
     - protocol: TCP
-      port: {{ .Values.service.internalPort }}
+      port: {{ include "app.listenPort" . }}
     {{- range .Values.service.extraPorts }}
     - protocol: TCP
       port: {{ .containerPort }}

@@ -42,10 +42,12 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: PORT
-              value: {{ .Values.service.internalPort | quote }}
+              value: {{ include "app.listenPort" . | quote }}
             {{- range .Values.env }}
+            {{- if ne .name "PORT" }}
             - name: {{ .name | quote }}
               value: {{ .value | quote }}
+            {{- end }}
             {{- end }}
           {{- if .Values.secretName }}
           envFrom:
@@ -54,7 +56,7 @@ spec:
           {{- end }}
           ports:
             - name: http
-              containerPort: {{ .Values.service.internalPort }}
+              containerPort: {{ include "app.listenPort" . }}
               protocol: TCP
             {{- range .Values.service.extraPorts }}
             - name: {{ .name }}
